@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azure SSL Thumbprint Formatter</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" href="styles.css" />
+</head>
+<body>
+  <section class="container">
+    <div class="form-input">
+      <label for="text-input">Original SSL Thumbprint</label>
+      <textarea
+        id="text-input"
+        placeholder="aa 00 aa 00 aa 00 aa 00 aa 00 aa 00 aa 00 aa 00 aa 00 aa 00"></textarea>
+      <section class="form-button">
+        <button id="btn-input" title="Format Thumbprint">Format Thumbprint</button>
+        <p class="text-inline" style="color: rgb(62, 62, 62);">(Press Enter)</p>
+      </section>
+    </div>
+    <div class="form-output">
+      <label for="text-result">Formatted SSL Thumbprint</label>
+      <textarea id="text-result" readonly></textarea>
+      <section class="form-button">
+        <button id="btn-copy" title="Copy text">Copy text</button>
+        <p class="text-inline hidden" id="text-copied">Text copied to clipboard!</p>
+      </section>
+    </div>
+  </section>
+
+  <script>
+    const btnInput = document.getElementById('btn-input');
+    const textInput = document.getElementById('text-input');
+    const textOutput = document.getElementById('text-result');
+    const textCopied = document.getElementById('text-copied');
+    const btnCopy = document.getElementById('btn-copy');
+
+    const convertText = () => {
+      console.log('textInput', textInput.value.replace(/\s|\u200e/gm, ''));
+      textOutput.value = textInput.value.replace(/\s|\u200e/gm, '');
+      textOutput.focus();
+      textOutput.select();
+    };
+    
+    textOutput.addEventListener('click', () => textOutput.select())
+    btnInput.addEventListener('click', () => convertText());
+    textInput.addEventListener('keypress', (e) => {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      convertText();
+    });
+    
+    btnCopy.addEventListener('click', () => {
+      navigator.clipboard.writeText(textOutput.value.trim());
+      textCopied.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

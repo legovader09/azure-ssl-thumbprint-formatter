@@ -1,0 +1,86 @@
+:root {
+ --background: rgb(215, 236, 255);
+ --textCopied: rgb(64, 95, 128);
+ --button: rgb(248, 255, 255);
+ --buttonHover: rgb(144, 207, 238);
+ --label: rgb(8, 21, 40);
+}
+
+* {
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-size: 16px;
+  transition: .15s;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  color: rgb(236, 243, 255);
+}
+
+.container {
+  border-radius: 4px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: var(--background);
+  box-shadow: 4px 4px 2px 1px rgba(46, 38, 43, 0.2);
+  padding: 2rem;
+}
+
+.form-input {
+  margin-bottom: 2rem;
+}
+
+.form-button {
+  margin-top: 4px;
+}
+
+#text-copied {
+  color: var(--textCopied);
+  padding-left: 4px;
+  font-weight: bold;
+  text-shadow: 1px 1px rgb(14, 14, 14, 0.2);
+}
+
+label {
+  display: block;
+  width: 100%;
+  margin-bottom: .5rem;
+  font-weight: 600;
+  color: var(--label);
+}
+
+button {
+  display: block;
+  padding: .5rem;
+  color: black;
+  display: inline;
+  background-color: var(--button);
+}
+
+button:hover {
+  background-color: var(--buttonHover);
+}
+
+textarea {
+  min-width: 300px;
+  min-height: 50px;
+  resize: none;
+  padding: .5rem;
+}
+
+textarea:focus {
+  outline-width: 0;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.text-inline {
+  display: inline;
+}
