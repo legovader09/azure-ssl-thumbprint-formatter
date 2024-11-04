@@ -1,5 +1,5 @@
 :root {
- --background: rgb(215, 236, 255);
+ --background: rgb(191, 212, 231);
  --textCopied: rgb(64, 95, 128);
  --button: rgb(248, 255, 255);
  --buttonHover: rgb(144, 207, 238);
@@ -14,6 +14,7 @@
 }
 
 body {
+  background-color: rgb(112, 133, 160);
   margin: 0;
   display: flex;
   justify-content: center;
@@ -27,7 +28,7 @@ body {
   border-radius: 4px;
   border: 1px solid rgb(0, 0, 0);
   background-color: var(--background);
-  box-shadow: 4px 4px 2px 1px rgba(46, 38, 43, 0.2);
+  box-shadow: 4px 4px 2px 1px rgba(46, 38, 43, 0.4);
   padding: 2rem;
 }
 
@@ -83,4 +84,12 @@ textarea:focus {
 
 .text-inline {
   display: inline;
+}
+
+.credits {
+  display: flex;
+}
+
+.credits-text {
+  margin-right: 6rem;
 }
