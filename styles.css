@@ -44,7 +44,6 @@ body {
   color: var(--textCopied);
   padding-left: 4px;
   font-weight: bold;
-  text-shadow: 1px 1px rgb(14, 14, 14, 0.2);
 }
 
 label {
