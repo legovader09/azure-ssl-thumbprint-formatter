@@ -7,7 +7,6 @@
 }
 
 * {
-  border-radius: 8px;
   font-family: sans-serif;
   font-size: 16px;
   transition: .15s;
@@ -16,15 +15,17 @@
 body {
   background-color: rgb(112, 133, 160);
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
   color: rgb(236, 243, 255);
+  min-height:100vh;
+  display: grid;
 }
 
 .container {
+  place-self: center;
+  max-width: 380px;
+}
+
+.form {
   border-radius: 4px;
   border: 1px solid rgb(0, 0, 0);
   background-color: var(--background);
@@ -55,6 +56,7 @@ label {
 }
 
 button {
+  border-radius: 4px;
   display: block;
   padding: .5rem;
   color: black;
@@ -67,6 +69,7 @@ button:hover {
 }
 
 textarea {
+  border-radius: 4px;
   min-width: 300px;
   min-height: 50px;
   resize: none;
@@ -85,12 +88,18 @@ textarea:focus {
   display: inline;
 }
 
-.credits {
-  display: flex;
+.credits-wrapper {
+  padding: 0 4px;
+  margin: 0 4px;
+  place-self: end center;
+  width: 100%;
 }
 
-.credits-text {
-  margin-right: 5.75rem;
+.credits {
+  padding: 0 4px;
+  margin: 0 4px;
+  display: flex;
+  justify-content: space-between;
 }
 
 a {
