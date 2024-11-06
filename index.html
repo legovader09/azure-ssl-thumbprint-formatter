@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Simple way to remove hidden characters and truncate whitespaces of SSL thumbprints.">
+  <meta name="keywords" content="SSL,Thumbprint,Thumbprints,Azure,DevOps,ADO,Formatter,Format,Cleaner">
+  <meta name="author" content="Dominik Hauerstein">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="VK-qP53j22WH7nAo_rhq2k5HbGJe3D94nJdnyKrqxKk" />
   <title>Azure SSL Thumbprint Formatter</title>
@@ -18,12 +21,16 @@
           placeholder="aa 00 aa 00 aa 00 aa 00 aa 00 aa 00 aa 00 aa 00 aa 00 aa 00"></textarea>
         <section class="form-button">
           <button id="btn-input" title="Format Thumbprint">Format Thumbprint</button>
-          <p class="text-inline" style="color: rgb(62, 62, 62);">(Press Enter)</p>
+          <p class="text-inline">(Press Enter)</p>
         </section>
       </div>
       <div class="form-output">
         <label for="text-result">Formatted SSL Thumbprint</label>
-        <textarea id="text-result" readonly></textarea>
+        <textarea
+          id="text-result"
+          placeholder="aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00"
+          readonly
+        ></textarea>
         <section class="form-button">
           <button id="btn-copy" title="Copy text">Copy text</button>
           <p class="text-inline hidden" id="text-copied">Text copied to clipboard!</p>
@@ -48,32 +55,6 @@
     </section>
   </section>
 
-  <script>
-    const btnInput = document.getElementById('btn-input');
-    const textInput = document.getElementById('text-input');
-    const textOutput = document.getElementById('text-result');
-    const textCopied = document.getElementById('text-copied');
-    const btnCopy = document.getElementById('btn-copy');
-
-    const convertText = () => {
-      console.log('textInput', textInput.value.replace(/\s|\u200e/gm, ''));
-      textOutput.value = textInput.value.replace(/\s|\u200e/gm, '');
-      textOutput.focus();
-      textOutput.select();
-    };
-    
-    textOutput.addEventListener('click', () => textOutput.select())
-    btnInput.addEventListener('click', () => convertText());
-    textInput.addEventListener('keypress', (e) => {
-      if (e.key !== 'Enter') return;
-      e.preventDefault();
-      convertText();
-    });
-    
-    btnCopy.addEventListener('click', () => {
-      navigator.clipboard.writeText(textOutput.value.trim());
-      textCopied.classList.remove('hidden');
-    });
-  </script>
+  <script src="site.js"></script>
 </body>
 </html>
