@@ -5,7 +5,6 @@ const textCopied = document.getElementById('text-copied');
 const btnCopy = document.getElementById('btn-copy');
 
 const convertText = () => {
-  console.log('textInput', textInput.value.replace(/\s|\u200e/gm, ''));
   textOutput.value = textInput.value.replace(/\s|\u200e/gm, '');
   textOutput.focus();
   textOutput.select();
