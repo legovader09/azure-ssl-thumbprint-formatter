@@ -107,6 +107,7 @@ textarea:focus {
   margin: 0 4px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 a {
